@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Toggle() {
-  return <button>OFF</button>;
+  const [btnToggle, setToggle] = useState(false)
+  function changeBtn(){
+    setToggle((btnToggle) => !btnToggle)
+  }
+
+ const btnColor = btnToggle ? "red" : "white";
+
+  return <button onClick={changeBtn} style={{background: btnColor}}>{btnToggle ? "ON" : "OFF"}</button>;
 }
 
 export default Toggle;
